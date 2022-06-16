@@ -3,6 +3,7 @@
 namespace FilamentStickyHeader;
 
 use Filament\PluginServiceProvider;
+use Spatie\LaravelPackageTools\Package;
 
 class FilamentStickyHeaderServiceProvider extends PluginServiceProvider
 {
@@ -13,4 +14,10 @@ class FilamentStickyHeaderServiceProvider extends PluginServiceProvider
     protected array $scripts = [
         'filament-sticky-header-scripts' => __DIR__ . '/../resources/dist/filament-sticky-header.js',
     ];
+
+    public function configurePackage(Package $package): void
+    {
+        $package
+            ->name('filament-sticky-header');
+    }
 }
