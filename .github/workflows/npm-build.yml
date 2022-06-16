@@ -1,6 +1,7 @@
 name: npm-build
 
 on:
+  push: [main]
   pull_request:
     branches: [main]
     types: [closed]
