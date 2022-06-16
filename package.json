@@ -1,0 +1,25 @@
+{
+    "name": "awcodes/filament-sticky-header",
+    "version": "1.0.0",
+    "description": "A Filament Admin plugin to make headers sticky when scrolling.",
+    "main": "index.js",
+    "scripts": {
+        "dev": "npm run development",
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "prod": "npm run production",
+        "production": "mix --production"
+    },
+    "keywords": [],
+    "author": {
+        "name": "Adam Weston",
+        "email": "awcodes1@gmail.com",
+        "url": "https://www.awcodes.com"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "tailwindcss": "^3.1.3"
+    }
+}
