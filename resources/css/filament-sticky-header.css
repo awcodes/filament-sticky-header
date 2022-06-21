@@ -11,7 +11,7 @@
     top: 0rem;
 }
 
-.filament-header[stuck] {
+[stuck] .filament-header {
     margin-inline: -1rem;
     padding-inline: theme("spacing.4");
     padding-block: theme("spacing.3");
@@ -25,19 +25,19 @@
 }
 
 @screen md {
-    .filament-header[stuck] {
+    [stuck] .filament-header {
         margin-inline: -2rem;
         padding-inline: theme("spacing.6");
     }
 }
 
 @screen lg {
-    .filament-header[stuck] {
+    [stuck] .filament-header {
         padding-inline: theme("spacing.8");
     }
 }
 
-.filament-header[stuck] h1 {
+[stuck] .filament-header h1 {
     font-size: theme("fontSize.xl");
     text-overflow: ellipsis;
     overflow: hidden;
@@ -67,7 +67,7 @@
     }
 }
 
-.dark .filament-header {
+.dark [stuck] .filament-header {
     background-color: theme(colors.gray.900 / 75%);
     border-color: theme("colors.gray.700");
 }
