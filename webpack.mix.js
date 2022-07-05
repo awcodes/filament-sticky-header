@@ -11,4 +11,5 @@ mix.setPublicPath("./resources/dist")
     .js("./resources/js/filament-sticky-header.js", "filament-sticky-header.js")
     .options({
         processCssUrls: false,
-    });
+    })
+    .version();
