@@ -11,13 +11,14 @@ class FilamentStickyHeaderServiceProvider extends PluginServiceProvider
         'filament-sticky-header-styles' => __DIR__ . '/../resources/dist/filament-sticky-header.css',
     ];
 
-    protected array $scripts = [
+    protected array $beforeCoreScripts = [
         'filament-sticky-header-scripts' => __DIR__ . '/../resources/dist/filament-sticky-header.js',
     ];
 
     public function configurePackage(Package $package): void
     {
         $package
-            ->name('filament-sticky-header');
+            ->name('filament-sticky-header')
+            ->hasAssets();
     }
 }
