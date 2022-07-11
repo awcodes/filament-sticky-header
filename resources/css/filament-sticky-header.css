@@ -1,72 +1,73 @@
 @tailwind utilities;
 
 .filament-app-layout {
-    overflow-x: clip !important;
+  overflow-x: clip !important;
 }
 
 .filament-header {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0rem;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0rem;
 }
 
 [stuck] .filament-header {
-    margin-inline: -1rem;
-    padding-inline: theme("spacing.4");
-    padding-block: theme("spacing.3");
-    background-color: theme(colors.white / 75%);
-    z-index: 40;
-    backdrop-filter: blur(12px);
-    min-height: 4rem;
-    border-bottom: solid 1px;
-    border-color: theme("colors.gray.200");
-    transition: all 0.25s ease-out;
+  margin-inline: -1rem;
+  padding-inline: theme("spacing.4");
+  padding-block: theme("spacing.3");
+  background-color: theme(colors.white / 75%);
+  z-index: 40;
+  backdrop-filter: blur(12px);
+  min-height: 4rem;
+  border-bottom: solid 1px;
+  border-color: theme("colors.gray.200");
+  transition: all 0.25s ease-out;
+  align-items: center;
 }
 
 @screen md {
-    [stuck] .filament-header {
-        margin-inline: -2rem;
-        padding-inline: theme("spacing.6");
-    }
+  [stuck] .filament-header {
+    margin-inline: -2rem;
+    padding-inline: theme("spacing.6");
+  }
 }
 
 @screen lg {
-    [stuck] .filament-header {
-        padding-inline: theme("spacing.8");
-    }
+  [stuck] .filament-header {
+    padding-inline: theme("spacing.8");
+  }
 }
 
 [stuck] .filament-header h1 {
-    font-size: theme("fontSize.xl");
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
+  font-size: theme("fontSize.xl");
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 @screen xl {
-    .filament-body[stuck]::before {
-        height: 4rem;
-        background-color: theme(colors.white / 75%);
-        border-bottom: solid 1px;
-        border-color: theme("colors.gray.200");
-        backdrop-filter: blur(12px);
-        content: "";
-        display: block;
-        z-index: 0;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        transition: all 0.25s ease-out;
-    }
+  .filament-body[stuck]::before {
+    height: 4rem;
+    background-color: theme(colors.white / 75%);
+    border-bottom: solid 1px;
+    border-color: theme("colors.gray.200");
+    backdrop-filter: blur(12px);
+    content: "";
+    display: block;
+    z-index: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: all 0.25s ease-out;
+  }
 
-    .dark .filament-body[stuck]::before {
-        background-color: theme(colors.gray.900 / 75%);
-        border-color: theme("colors.gray.700");
-    }
+  .dark .filament-body[stuck]::before {
+    background-color: theme(colors.gray.900 / 75%);
+    border-color: theme("colors.gray.700");
+  }
 }
 
 .dark [stuck] .filament-header {
-    background-color: theme(colors.gray.900 / 75%);
-    border-color: theme("colors.gray.700");
+  background-color: theme(colors.gray.900 / 75%);
+  border-color: theme("colors.gray.700");
 }
