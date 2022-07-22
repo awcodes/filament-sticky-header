@@ -1,9 +1,9 @@
 {
     "private": true,
     "scripts": {
-        "dev:css": "npx tailwindcss -i resources/css/plugin.css -o resources/dist/filament-sticky-header.css --watch",
+        "dev:css": "npx tailwindcss -i resources/css/plugin.css -o resources/dist/filament-sticky-header.css --postcss --watch",
         "dev:js": "esbuild resources/js/plugin.js --bundle --sourcemap=inline --target=es2016 --outfile=resources/dist/filament-sticky-header.js --watch",
-        "build:css": "npx tailwindcss -i resources/css/plugin.css -o resources/dist/filament-sticky-header.css --minify",
+        "build:css": "npx tailwindcss -i resources/css/plugin.css -o resources/dist/filament-sticky-header.css --postcss --minify",
         "build:js": "esbuild resources/js/plugin.js --bundle --minify --target=es2016 --outfile=resources/dist/filament-sticky-header.js",
         "dev": "npm-run-all --parallel dev:*",
         "build": "npm-run-all build:*"
