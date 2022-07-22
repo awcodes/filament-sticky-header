@@ -1,16 +1,18 @@
 {
     "private": true,
     "scripts": {
-        "dev": "npm run development",
-        "development": "mix",
-        "watch": "mix watch",
-        "watch-poll": "mix watch -- --watch-options-poll=1000",
-        "hot": "mix watch --hot",
-        "prod": "npm run production",
-        "production": "mix --production"
+        "dev:css": "npx tailwindcss -i resources/css/plugin.css -o resources/dist/filament-sticky-header.css --watch",
+        "dev:js": "esbuild resources/js/plugin.js --bundle --sourcemap=inline --target=es2016 --outfile=resources/dist/filament-sticky-header.js --watch",
+        "build:css": "npx tailwindcss -i resources/css/plugin.css -o resources/dist/filament-sticky-header.css --minify",
+        "build:js": "esbuild resources/js/plugin.js --bundle --minify --target=es2016 --outfile=resources/dist/filament-sticky-header.js",
+        "dev": "npm-run-all --parallel dev:*",
+        "build": "npm-run-all build:*"
     },
     "devDependencies": {
-        "tailwindcss": "^3.1.4",
-        "laravel-mix": "^6.0.49"
+        "autoprefixer": "^10.4.7",
+        "esbuild": "^0.14.49",
+        "npm-run-all": "^4.1.5",
+        "postcss": "^8.4.14",
+        "tailwindcss": "^3.1.6"
     }
 }
