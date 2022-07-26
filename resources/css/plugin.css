@@ -4,6 +4,10 @@
   overflow-x: clip !important;
 }
 
+.filament-sidebar {
+  z-index: 39 !important;
+}
+
 .filament-header {
   position: -webkit-sticky;
   position: sticky;
@@ -14,27 +18,13 @@
   margin-inline: -1rem;
   padding-inline: theme("spacing.4");
   padding-block: theme("spacing.3");
-  background-color: theme(colors.white / 75%);
-  z-index: 40;
-  backdrop-filter: blur(12px);
+  z-index: 39;
   min-height: 4rem;
-  border-bottom: solid 1px;
-  border-color: theme("colors.gray.200");
-  transition: all 0.25s ease-out;
   align-items: center;
-}
-
-@screen md {
-  [stuck] .filament-header {
-    margin-inline: -2rem;
-    padding-inline: theme("spacing.6");
-  }
-}
-
-@screen lg {
-  [stuck] .filament-header {
-    padding-inline: theme("spacing.8");
-  }
+  background-color: theme(colors.white / 75%);
+  border-color: theme("colors.gray.200");
+  border-bottom: solid 1px;
+  backdrop-filter: blur(12px);
 }
 
 [stuck] .filament-header h1 {
@@ -44,30 +34,60 @@
   white-space: nowrap;
 }
 
-@screen xl {
-  .filament-body[stuck]::before {
-    height: 4rem;
-    background-color: theme(colors.white / 75%);
-    border-bottom: solid 1px;
-    border-color: theme("colors.gray.200");
-    backdrop-filter: blur(12px);
+.dark [stuck] .filament-header {
+  background-color: theme(colors.gray.900 / 75%);
+  border-color: theme("colors.gray.700");
+}
+
+@screen md {
+  [stuck] .filament-header {
+    margin-inline: -1.5rem;
+    padding-inline: theme("spacing.6");
+    background-color: transparent !important;
+    border-color: transparent !important;
+    backdrop-filter: none;
+  }
+
+  .dark [stuck] .filament-header {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    backdrop-filter: none;
+  }
+
+  .filament-main::before {
     content: "";
+    opacity: 0;
+    height: 4rem;
     display: block;
-    z-index: 0;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    transition: all 0.25s ease-out;
+    z-index: -1;
+    background-color: transparent;
+    border-color: transparent;
+    border-bottom: solid 1px;
+    backdrop-filter: blur(12px);
+    transition: opacity 0.125s ease-out;
   }
 
-  .dark .filament-body[stuck]::before {
+  [stuck] .filament-main::before {
+    opacity: 1;
+    z-index: 38;
+    transition: opacity 0.125s ease-out;
+    background-color: theme(colors.white / 75%);
+    border-color: theme("colors.gray.200");
+  }
+
+  .dark [stuck] .filament-main::before {
     background-color: theme(colors.gray.900 / 75%);
     border-color: theme("colors.gray.700");
   }
 }
 
-.dark [stuck] .filament-header {
-  background-color: theme(colors.gray.900 / 75%);
-  border-color: theme("colors.gray.700");
+@screen lg {
+  [stuck] .filament-header {
+    margin-inline: -2rem;
+    padding-inline: theme("spacing.8");
+  }
 }
