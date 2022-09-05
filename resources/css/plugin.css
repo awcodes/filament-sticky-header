@@ -4,10 +4,6 @@
   overflow-x: clip !important;
 }
 
-.filament-sidebar {
-  z-index: 39 !important;
-}
-
 .filament-header {
   position: -webkit-sticky;
   position: sticky;
@@ -61,7 +57,7 @@
     display: block;
     position: fixed;
     top: 0;
-    left: 0;
+    left: 5.4em;
     right: 0;
     z-index: -1;
     background-color: transparent;
@@ -73,7 +69,7 @@
 
   [stuck] .filament-main::before {
     opacity: 1;
-    z-index: 38;
+    z-index: 5;
     transition: opacity 0.125s ease-out;
     background-color: theme(colors.white / 75%);
     border-color: theme("colors.gray.200");
@@ -86,6 +82,10 @@
 }
 
 @screen lg {
+  .filament-main.filament-main-sidebar-open::before {
+    left: var(--sidebar-width);
+  }
+
   [stuck] .filament-header {
     margin-inline: -2rem;
     padding-inline: theme("spacing.8");
