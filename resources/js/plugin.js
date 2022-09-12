@@ -1,26 +1,26 @@
 const filamentTopbar = document.querySelector(".filament-main-topbar");
-const filamentHeader = document.querySelector(".filament-header");
-const filamentBody = document.querySelector(".filament-body");
+const filamentMain = document.querySelector(".filament-main");
 
-if (filamentTopbar && filamentHeader && filamentBody) {
+if (filamentTopbar && filamentMain) {
   window.addEventListener("load", function () {
+    const trigger = document.createElement("div");
+    trigger.classList.add("filament-sticky-trigger");
+    filamentTopbar.after(trigger);
+
     const observer = new IntersectionObserver(
       ([e]) => {
         if (e.isIntersecting) {
-          filamentHeader.removeAttribute("stuck");
-          filamentBody.removeAttribute("stuck");
-        } else {
-          filamentHeader.setAttribute("stuck", "true");
-          filamentBody.setAttribute("stuck", "true");
+          filamentMain.classList.remove("is-sticky");
+          return;
         }
+
+        filamentMain.classList.add("is-sticky");
       },
       {
-        root: null,
-        rootMargin: `${filamentTopbar.offsetHeight * -1}px`,
         threshold: [0],
       }
     );
 
-    observer.observe(filamentTopbar);
+    observer.observe(trigger);
   });
 }
