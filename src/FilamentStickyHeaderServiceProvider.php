@@ -2,23 +2,57 @@
 
 namespace FilamentStickyHeader;
 
+use Composer\InstalledVersions;
 use Filament\PluginServiceProvider;
 use Spatie\LaravelPackageTools\Package;
 
 class FilamentStickyHeaderServiceProvider extends PluginServiceProvider
 {
-    protected array $styles = [
-        'filament-sticky-header-styles' => __DIR__ . '/../resources/dist/filament-sticky-header.css',
-    ];
+    public static string $name = 'filament-sticky-header';
 
-    protected array $beforeCoreScripts = [
-        'filament-sticky-header-scripts' => __DIR__ . '/../resources/dist/filament-sticky-header.js',
-    ];
+    protected static string $version = 'dev';
 
     public function configurePackage(Package $package): void
     {
+        static::$version = InstalledVersions::getPrettyVersion('awcodes/filament-sticky-header');
+
         $package
-            ->name('filament-sticky-header')
+            ->name(static::$name)
             ->hasAssets();
+    }
+
+    public function packageRegistered(): void
+    {
+        parent::packageRegistered();
+
+        $this->app->singleton('sticky-header', fn (): StickyHeader => new StickyHeader());
+    }
+
+    /**
+     * @return array
+     */
+    public function getStyles(): array
+    {
+        if (! app('sticky-header')->isCssDisabled()) {
+            return [
+                'plugin-sticky-header-' . static::$version => __DIR__ . '/../resources/dist/filament-sticky-header.css',
+            ];
+        }
+
+        return [];
+    }
+
+    protected function getBeforeCoreScripts(): array
+    {
+        return [
+            'plugin-sticky-header-' . static::$version => __DIR__ . '/../resources/dist/filament-sticky-header.js',
+        ];
+    }
+
+    protected function getScriptData(): array
+    {
+        return [
+            'stickyHeaderTheme' => app('sticky-header')->getTheme()
+        ];
     }
 }

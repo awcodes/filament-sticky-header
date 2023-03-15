@@ -5,8 +5,11 @@ const filamentHeader = document.querySelector(".filament-header");
 if (filamentTopbar && filamentMainContent && filamentHeader) {
   window.addEventListener("load", function () {
     const trigger = document.createElement("div");
+    const theme = filamentData?.stickyHeaderTheme || 'default';
     trigger.classList.add("filament-sticky-trigger");
     filamentMainContent.prepend(trigger);
+
+    filamentMainContent.classList.add(`sticky-theme-${theme}`);
 
     const observer = new IntersectionObserver(
       ([e]) => {
@@ -15,8 +18,14 @@ if (filamentTopbar && filamentMainContent && filamentHeader) {
           return;
         }
 
-        filamentHeader.style.top = filamentTopbar.offsetHeight + "px";
-        filamentHeader.setAttribute("wire:ignore", true);
+        let offsetModifier = 0;
+
+        if (theme === 'floating') {
+            offsetModifier += 8;
+        }
+
+        filamentHeader.style.top = (filamentTopbar.offsetHeight + offsetModifier) + "px";
+        filamentHeader.setAttribute("wire:ignore", "true");
         filamentMainContent.classList.add("is-sticky");
       },
       {
