@@ -23,11 +23,9 @@ To use the new 'Floating Theme' just pass the 'floating' key to the `setTheme()`
 ```php
 use FilamentStickyHeader\Facades\StickyHeader;
 
-public function boot(): void
+public function register(): void
 {
-    Filament::serving(function () {
-        StickyHeader::setTheme('floating');
-    }
+    StickyHeader::setTheme('floating');
 }
 ```
 
@@ -38,11 +36,9 @@ If you are using a custom Filament Theme you will need to disable the loading of
 ```php
 use FilamentStickyHeader\Facades\StickyHeader;
 
-public function boot(): void
+public function register(): void
 {
-    Filament::serving(function () {
-        StickyHeader::disableCss();
-    }
+    StickyHeader::disableCss();
 }
 ```
 
