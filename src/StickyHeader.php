@@ -9,6 +9,8 @@ class StickyHeader
     protected string $theme = 'default';
 
     protected bool $isCssDisabled = false;
+    
+    protected bool $isTopBarSticky = true;
 
     public function setTheme(string $theme): static
     {
@@ -23,10 +25,22 @@ class StickyHeader
 
         return $this;
     }
+    
+    public function disableTopBarSticky(bool $condition = false): static
+    {
+        $this->isTopBarSticky = $condition;
+
+        return $this;
+    }
 
     public function getTheme(): string
     {
         return $this->theme;
+    }
+    
+    public function isTopBarSticky(): bool
+    {
+        return $this->isTopBarSticky;
     }
 
     public function isCssDisabled(): bool

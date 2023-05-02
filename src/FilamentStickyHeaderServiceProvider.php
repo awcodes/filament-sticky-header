@@ -52,7 +52,8 @@ class FilamentStickyHeaderServiceProvider extends PluginServiceProvider
     protected function getScriptData(): array
     {
         return [
-            'stickyHeaderTheme' => app('sticky-header')->getTheme()
+            'stickyHeaderTheme' => app('sticky-header')->getTheme(),
+            'stickyTopBar' => app('sticky-header')->isTopBarSticky(),
         ];
     }
 }
