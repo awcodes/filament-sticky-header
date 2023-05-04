@@ -17,14 +17,12 @@
     ],
     "require": {
         "php": "^8.0.2",
-        "filament/filament": "^2.0",
+        "filament/filament": "v3.0.0-alpha81",
         "spatie/laravel-package-tools": "^1.9.2"
     },
     "autoload": {
         "psr-4": {
-            "FilamentStickyHeader\\": "src/",
-            "FilamentStickyHeader\\Database\\Factories\\": "database/factories/",
-            "FilamentStickyHeader\\Database\\Seeders\\": "database/seeders/"
+            "FilamentStickyHeader\\": "src/"
         }
     },
     "autoload-dev": {
