@@ -2,35 +2,43 @@
 
 @screen lg {
   .filament-sidebar {
-    z-index: 2 !important;
+    @apply lg:!bg-white dark:lg:!bg-gray-900 !z-[2];
+  }
+}
+
+.filament-main-content.is-sticky {
+  .filament-header {
+    @apply sticky backdrop-blur-md z-[1] md:items-center;
+  }
+
+  .filament-header .filament-header-heading {
+    @apply text-xl overflow-ellipsis whitespace-nowrap overflow-hidden leading-none;
   }
 }
 
 .is-sticky.sticky-theme-default {
   .filament-header {
-    @apply sticky inset-x-0 md:items-center py-3 md:-inset-x-6;
+    @apply sticky inset-x-0  py-3 md:-inset-x-6;
     z-index: 1;
 
     &:before {
-      @apply backdrop-blur-md bg-white/95 dark:bg-gray-900/95 border-b border-gray-200 dark:border-gray-700 absolute block top-0 bottom-0;
+      @apply backdrop-blur-md bg-white/95 dark:bg-gray-900/95 border-b border-gray-200 dark:border-gray-800 absolute block top-0 bottom-0;
       content: "";
       z-index: -1;
       left: -1000px;
       right: -1000px;
-    }
-
-    & .filament-header-heading {
-      @apply text-xl overflow-ellipsis whitespace-nowrap overflow-hidden leading-none;
     }
   }
 }
 
 .is-sticky.sticky-theme-floating {
   .filament-header {
-    @apply sticky lg:-mx-2 md:items-center py-3 px-4 backdrop-blur-lg bg-primary-400/40 dark:bg-primary-900/40 border rounded-lg shadow-md border-primary-200/40 dark:border-primary-700/40 z-[1];
+    @apply lg:-mx-4 py-3 px-4 bg-gray-300/40 border rounded-lg shadow-md border-primary-200/40 dark:bg-black/50 dark:border-gray-700/40;
   }
+}
 
-  .filament-header .filament-header-heading {
-    @apply text-xl overflow-ellipsis whitespace-nowrap overflow-hidden leading-none;
+.is-sticky.sticky-theme-floating-colored {
+  .filament-header {
+    @apply lg:-mx-4 py-3 px-4 bg-primary-500/30 border rounded-lg shadow-md border-primary-200/40 dark:border-primary-700/40;
   }
 }

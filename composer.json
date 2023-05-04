@@ -30,13 +30,6 @@
             "FilamentStickyHeader\\Tests\\": "tests/"
         }
     },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "FilamentStickyHeader\\FilamentStickyHeaderServiceProvider"
-            ]
-        }
-    },
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",

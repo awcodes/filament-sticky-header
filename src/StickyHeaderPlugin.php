@@ -10,6 +10,9 @@ use Filament\Support\Facades\FilamentAsset;
 
 class StickyHeaderPlugin implements Plugin
 {
+    protected string $theme = 'default';
+
+    protected bool $isTopBarSticky = true;
 
     public function getId(): string
     {
@@ -18,32 +21,44 @@ class StickyHeaderPlugin implements Plugin
 
     public function register(Context $context): void
     {
-        FilamentAsset::register(array_merge(
-            $this->getStyles(),
-            $this->getScripts()
-        ), 'filament-sticky-header');
+        FilamentAsset::register([
+            Css::make('filament-sticky-header', __DIR__ . '/../resources/dist/filament-sticky-header.css'),
+            Js::make('filament-sticky-header', __DIR__ . '/../resources/dist/filament-sticky-header.js'),
+        ], 'filament-sticky-header');
+
+        FilamentAsset::registerScriptData([
+            'stickyHeaderTheme' => $this->getTheme(),
+            'stickyTopBar' => $this->isTopBarSticky(),
+        ],'filament-sticky-header');
     }
 
     public function boot(Context $context): void
     {
-        // TODO: Implement boot() method.
+        //
     }
 
-    public function getStyles(): array
-    {
-        if (! app('sticky-header')->isCssDisabled()) {
-            return [
-                Css::make('filament-sticky-header', __DIR__ . '/../resources/dist/filament-sticky-header.css'),
-            ];
-        }
 
-        return [];
+    public function setTheme(string $theme): static
+    {
+        $this->theme = $theme;
+
+        return $this;
     }
 
-    protected function getScripts(): array
+    public function disableTopBarSticky(bool $condition = false): static
     {
-        return [
-            Js::make('filament-sticky-header', __DIR__ . '/../resources/dist/filament-sticky-header.js')
-        ];
+        $this->isTopBarSticky = $condition;
+
+        return $this;
+    }
+
+    public function getTheme(): string
+    {
+        return $this->theme;
+    }
+
+    public function isTopBarSticky(): bool
+    {
+        return $this->isTopBarSticky;
     }
 }

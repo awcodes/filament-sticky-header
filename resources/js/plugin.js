@@ -35,7 +35,7 @@ if (filamentTopbar && filamentMainContent && filamentHeader) {
 
         let offsetModifier = 0;
 
-        if (theme === 'floating') {
+        if (theme.includes('floating')) {
           offsetModifier += 8;
         }
 
