@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static static disableCss(bool $condition = true)
  * @method static string getTheme()
  * @method static bool isCssDisabled()
+ * @method static bool isTopBarSticky()
  *
  * @see \FilamentStickyHeader\StickyHeader
  */
