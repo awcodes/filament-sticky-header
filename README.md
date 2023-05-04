@@ -2,7 +2,7 @@
 
 :bangbang: Does not work in Safari < v16.
 
-A Filament Admin plugin to make headers sticky when scrolling.
+A Filament Admin plugin to make page headers sticky when scrolling.
 
 ## Installation
 
@@ -16,34 +16,58 @@ composer require awcodes/filament-sticky-header
 
 By default, sticky header will work out of the box, but you can modify its behavior through the `StickyHeader` facade via the `boot()` in a service provider.
 
+```php
+use FilamentStickyHeader\StickyHeaderPlugin;
+
+public function context(Context $context): Context
+{
+    return $context
+        ...
+        ->plugins([
+            ...
+            new StickyHeaderPlugin()
+        ])
+    ])
+}
+```
+
 ### Floating Theme
 
-To use the new 'Floating Theme' just pass the 'floating' key to the `setTheme()` method in a service provider. 
+To use the new 'Floating Theme' just pass the 'floating' key to the `setTheme()` method when newing up the plugin.
+
+* `setTheme('floating')`
+* `setTheme('floating-colored')`
 
 ```php
-use FilamentStickyHeader\Facades\StickyHeader;
+use FilamentStickyHeader\StickyHeaderPlugin;
 
-public function register(): void
+public function context(Context $context): Context
 {
-    StickyHeader::setTheme('floating');
+    return $context
+        ...
+        ->plugins([
+            ...
+            (new StickyHeaderPlugin())->setTheme('floating')
+        ])
+    ])
 }
 ```
 
-## Usage with Custom Filament Themes
+### Disabling Sticky Top Bar
 
-If you are using a custom Filament Theme you will need to disable the loading of the CSS file.
+If you'd like to disable the stickiness of the main Filament Top Bar you may do so with the `disableTopBarSticky()` method.
 
 ```php
-use FilamentStickyHeader\Facades\StickyHeader;
+use FilamentStickyHeader\StickyHeaderPlugin;
 
-public function register(): void
+public function context(Context $context): Context
 {
-    StickyHeader::disableCss();
+    return $context
+        ...
+        ->plugins([
+            ...
+            (new StickyHeaderPlugin())->disableTopBarSticky()
+        ])
+    ])
 }
-```
-
-Then incorporate the plugin's styles into your theme's css file.
-
-```css
-@import "<path-to-vendor>/vendor/awcodes/filament-sticky-header/resources/css/plugin.css";
 ```
