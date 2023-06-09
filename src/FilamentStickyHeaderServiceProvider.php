@@ -3,7 +3,9 @@
 namespace FilamentStickyHeader;
 
 use Composer\InstalledVersions;
+use Filament\Facades\Filament;
 use Filament\PluginServiceProvider;
+use Illuminate\Support\HtmlString;
 use Spatie\LaravelPackageTools\Package;
 
 class FilamentStickyHeaderServiceProvider extends PluginServiceProvider
@@ -33,7 +35,7 @@ class FilamentStickyHeaderServiceProvider extends PluginServiceProvider
      */
     public function getStyles(): array
     {
-        if (! app('sticky-header')->isCssDisabled()) {
+        if (app('sticky-header')->shouldLoadAssets()) {
             return [
                 'plugin-sticky-header-' . static::$version => __DIR__ . '/../resources/dist/filament-sticky-header.css',
             ];
@@ -44,16 +46,22 @@ class FilamentStickyHeaderServiceProvider extends PluginServiceProvider
 
     protected function getBeforeCoreScripts(): array
     {
-        return [
-            'plugin-sticky-header-' . static::$version => __DIR__ . '/../resources/dist/filament-sticky-header.js',
-        ];
+        if (app('sticky-header')->shouldLoadAssets()) {
+            return [
+                'plugin-sticky-header-' . static::$version => __DIR__ . '/../resources/dist/filament-sticky-header.js',
+            ];
+        }
+
+        return [];
     }
 
     protected function getScriptData(): array
     {
         return [
-            'stickyHeaderTheme' => app('sticky-header')->getTheme(),
+            'stickyIsFloating' => app('sticky-header')->isFloating(),
             'stickyTopBar' => app('sticky-header')->isTopBarSticky(),
+            'stickyColors' => app('sticky-header')->getColors(),
+            'stickyOpacity' => app('sticky-header')->getOpacity(),
         ];
     }
 }

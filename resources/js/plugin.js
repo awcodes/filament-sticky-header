@@ -5,9 +5,13 @@ const filamentHeader = document.querySelector(".filament-header");
 if (filamentTopbar && filamentMainContent && filamentHeader) {
   window.addEventListener("load", function () {
     const trigger = document.createElement("div");
-    const theme = filamentData?.stickyHeaderTheme || 'default';
+    const theme = filamentData?.stickyIsFloating ?? false ? 'floating' : 'default';
     const topBarSticky = filamentData?.stickyTopBar ?? true;
+    const colors = filamentData?.stickyColors;
+    const opacity = filamentData?.stickyOpacity;
+
     trigger.classList.add("filament-sticky-trigger");
+
     filamentMainContent.prepend(trigger);
 
     filamentMainContent.classList.add(`sticky-theme-${theme}`);
@@ -40,7 +44,18 @@ if (filamentTopbar && filamentMainContent && filamentHeader) {
         }
 
         filamentHeader.style.top = (offsetHeight + offsetModifier) + "px";
+
         filamentHeader.setAttribute("wire:ignore", "true");
+
+        if (colors) {
+            filamentHeader.style.setProperty('--sticky-header-color-light', colors.light);
+            filamentHeader.style.setProperty('--sticky-header-color-dark', colors.dark);
+        }
+
+        if (opacity) {
+            filamentHeader.style.setProperty('--sticky-header-opacity', opacity);
+        }
+
         filamentMainContent.classList.add("is-sticky");
       },
       {

@@ -6,45 +6,73 @@ use Illuminate\Support\Str;
 
 class StickyHeader
 {
-    protected string $theme = 'default';
+    protected bool $isFloating = false;
 
-    protected bool $isCssDisabled = false;
+    protected array|null $colors = null;
+
+    protected bool $shouldLoadAssets = true;
     
     protected bool $isTopBarSticky = true;
 
-    public function setTheme(string $theme): static
+    protected float|int $opacity = 0.9;
+
+    public function colors(string $light, string $dark): static
     {
-        $this->theme = Str::slug($theme);
+        $this->colors = ['light' => $light, 'dark' => $dark];
 
         return $this;
     }
 
-    public function disableCss(bool $condition = true): static
+    public function floating(): static
     {
-        $this->isCssDisabled = $condition;
+        $this->isFloating = true;
+
+        return $this;
+    }
+
+    public function disableLoadingAssets(bool $condition = false): static
+    {
+        $this->shouldLoadAssets = $condition;
 
         return $this;
     }
     
-    public function disableTopBarSticky(bool $condition = false): static
+    public function disableStickyTopBar(bool $condition = false): static
     {
         $this->isTopBarSticky = $condition;
 
         return $this;
     }
 
-    public function getTheme(): string
+    public function opacity(float|int $opacity): static
     {
-        return $this->theme;
+        $this->opacity = $opacity;
+
+        return $this;
     }
-    
+
+    public function isFloating(): string
+    {
+        return $this->isFloating;
+    }
+
+    public function getColors(): array|null
+    {
+        return $this->colors;
+    }
+
+    public function getOpacity(): float|int
+    {
+        return $this->opacity;
+    }
+
     public function isTopBarSticky(): bool
     {
         return $this->isTopBarSticky;
     }
 
-    public function isCssDisabled(): bool
+    public function shouldLoadAssets(): bool
     {
-        return $this->isCssDisabled;
+        return $this->shouldLoadAssets;
     }
 }

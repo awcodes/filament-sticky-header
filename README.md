@@ -14,36 +14,36 @@ composer require awcodes/filament-sticky-header
 
 ## Usage
 
-By default, sticky header will work out of the box, but you can modify its behavior through the `StickyHeader` facade via the `boot()` in a service provider.
-
-### Floating Theme
-
-To use the new 'Floating Theme' just pass the 'floating' key to the `setTheme()` method in a service provider. 
+By default, sticky header will work out of the box, but you can modify its behavior through the `StickyHeader` facade via the `register()` method in a service provider.
 
 ```php
 use FilamentStickyHeader\Facades\StickyHeader;
 
 public function register(): void
 {
-    StickyHeader::setTheme('floating');
+    StickyHeader::floating()
+        ->colors(light: '#fef3c7', dark: '#d97706')
+        ->opacity(0.7);
 }
 ```
 
-## Usage with Custom Filament Themes
+## Assets
 
-If you are using a custom Filament Theme you will need to disable the loading of the CSS file.
+This plugin will automatically load its assets via Filament. If you wish to disable this behavior, you can do so via the `disableLoadingAssets()` method.
 
 ```php
 use FilamentStickyHeader\Facades\StickyHeader;
 
 public function register(): void
 {
-    StickyHeader::disableCss();
+    StickyHeader::disableLoadingAssets();
 }
 ```
 
-Then incorporate the plugin's styles into your theme's css file.
+You will also need to publish the plugin's assets to your public directory. Remember to use the force flag each time you upgrade the plugin.
 
-```css
-@import "<path-to-vendor>/vendor/awcodes/filament-sticky-header/resources/css/plugin.css";
+```bash
+php artisan vendor:publish --tag="filament-sticky-header-assets" --force
 ```
+
+Then load the plugin's CSS and JS files manually in your app.
