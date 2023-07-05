@@ -4,6 +4,8 @@
 
 A Filament Admin plugin to make page headers sticky when scrolling.
 
+![sticky-header-og](https://github.com/awcodes/filament-sticky-header/assets/3596800/b166b5c9-9fdd-4e87-96f2-47fc1825999a)
+
 ## Installation
 
 Install packages via composer
