@@ -2,7 +2,7 @@
 
 @screen lg {
   .filament-sidebar {
-    @apply lg:!bg-white dark:lg:!bg-gray-900 !z-[2];
+    @apply lg:!bg-gray-50 dark:lg:!bg-gray-900 !z-[2];
   }
 }
 
