@@ -1,6 +1,7 @@
 ## Filament Sticky Header
 
-:bangbang: Does not work in Safari < v16.
+> **Warning**
+> Does not work in Safari < v16.
 
 A Filament Admin plugin to make page headers sticky when scrolling.
 
