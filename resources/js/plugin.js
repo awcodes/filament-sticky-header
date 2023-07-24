@@ -1,6 +1,6 @@
-const filamentTopbar = document.querySelector(".filament-main-topbar");
-const filamentMainContent = document.querySelector(".filament-main-content");
-const filamentHeader = document.querySelector(".filament-header");
+const filamentTopbar = document.querySelector(".fi-topbar");
+const filamentMainContent = document.querySelector(".fi-main");
+const filamentHeader = document.querySelector(".fi-header");
 
 if (filamentTopbar && filamentMainContent && filamentHeader) {
     window.addEventListener("load", function () {

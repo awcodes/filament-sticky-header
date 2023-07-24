@@ -8,9 +8,9 @@ use Filament\Support\Facades\FilamentAsset;
 
 class StickyHeaderPlugin implements Plugin
 {
-    protected bool | null $isColored = null;
+    protected ?bool $isColored = null;
 
-    protected bool | null $isFloating = null;
+    protected ?bool $isFloating = null;
 
     public function boot(Panel $panel): void
     {
@@ -38,7 +38,7 @@ class StickyHeaderPlugin implements Plugin
 
     public function getId(): string
     {
-        return 'filament-sticky-header';
+        return 'awcodes-sticky-header';
     }
 
     public function isColored(): bool
@@ -74,6 +74,6 @@ class StickyHeaderPlugin implements Plugin
     {
         FilamentAsset::registerScriptData([
             'stickyHeaderTheme' => $this->getTheme(),
-        ], 'filament-sticky-header');
+        ], 'awcodes-sticky-header');
     }
 }

@@ -13,7 +13,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/filament/support" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/filament/notifications" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/livewire/livewire" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/tgalopin/html-sanitizer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/danharrin/date-format-converter" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/danharrin/livewire-rate-limiting" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/fruitcake/php-cors" />
@@ -80,7 +79,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/service-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/http-foundation" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/config" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/league/uri-parser" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/commonmark" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nesbot/carbon" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/ramsey/collection" />
@@ -96,6 +94,10 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/translation" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php83" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/pint" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/league/uri" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/league/uri-interfaces" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/html-sanitizer" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

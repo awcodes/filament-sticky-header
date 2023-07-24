@@ -20,7 +20,6 @@
       <path value="$PROJECT_DIR$/vendor/filament/support" />
       <path value="$PROJECT_DIR$/vendor/filament/notifications" />
       <path value="$PROJECT_DIR$/vendor/livewire/livewire" />
-      <path value="$PROJECT_DIR$/vendor/tgalopin/html-sanitizer" />
       <path value="$PROJECT_DIR$/vendor/danharrin/date-format-converter" />
       <path value="$PROJECT_DIR$/vendor/danharrin/livewire-rate-limiting" />
       <path value="$PROJECT_DIR$/vendor/fruitcake/php-cors" />
@@ -87,7 +86,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
       <path value="$PROJECT_DIR$/vendor/league/config" />
-      <path value="$PROJECT_DIR$/vendor/league/uri-parser" />
       <path value="$PROJECT_DIR$/vendor/league/commonmark" />
       <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
       <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
@@ -108,6 +106,10 @@
       <path value="$PROJECT_DIR$/vendor/filament/actions" />
       <path value="$PROJECT_DIR$/vendor/filament/infolists" />
       <path value="$PROJECT_DIR$/vendor/laravel/pint" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/symfony/html-sanitizer" />
+      <path value="$PROJECT_DIR$/vendor/league/uri" />
+      <path value="$PROJECT_DIR$/vendor/league/uri-interfaces" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />

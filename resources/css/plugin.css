@@ -1,24 +1,24 @@
 @tailwind utilities;
 
 @screen lg {
-  .filament-sidebar {
-    @apply lg:!bg-gray-50 dark:lg:!bg-gray-900 !z-[2];
+  .fi-sidebar {
+    @apply lg:!bg-gray-50 dark:lg:!bg-gray-950 !z-[2];
   }
 }
 
-.filament-main-content.is-sticky {
-  .filament-header {
+.fi-main.is-sticky {
+  .fi-header {
     @apply sticky backdrop-blur-md z-[1] md:items-center;
   }
 
-  .filament-header .filament-header-heading {
+  .fi-header .fi-header-heading {
     @apply text-xl overflow-ellipsis whitespace-nowrap overflow-hidden leading-none;
   }
 }
 
 .is-sticky.sticky-theme-default {
-  .filament-header {
-    @apply sticky inset-x-0  py-3 md:-inset-x-6;
+  .fi-header {
+    @apply sticky inset-x-0 py-3 md:-inset-x-6;
     z-index: 1;
 
     &:before {
@@ -32,13 +32,25 @@
 }
 
 .is-sticky.sticky-theme-floating {
-  .filament-header {
-    @apply lg:-mx-4 py-3 px-4 bg-gray-300/40 border rounded-lg shadow-md border-primary-200/40 dark:bg-black/50 dark:border-gray-700/40;
+  .fi-header {
+    @apply lg:-mx-4 py-3 px-4 bg-white/80 border rounded-lg shadow-md border-gray-950/5 dark:bg-black/70 dark:border-white/20;
   }
 }
 
 .is-sticky.sticky-theme-floating-colored {
-  .filament-header {
-    @apply lg:-mx-4 py-3 px-4 bg-primary-500/30 border rounded-lg shadow-md border-primary-200/40 dark:border-primary-700/40;
+  .fi-header {
+    @apply lg:-mx-4 py-3 px-4 bg-primary-500/80 border rounded-lg shadow-md border-primary-200/40 dark:border-primary-700/40;
+
+    .fi-header-heading {
+        @apply text-white;
+    }
+
+    .fi-breadcrumbs a {
+        @apply text-primary-100 hover:text-white focus:text-white;
+    }
+
+    .fi-breadcrumbs svg {
+      @apply text-primary-200 dark:text-primary-300;
+    }
   }
 }
