@@ -1,5 +1,3 @@
-@tailwind utilities;
-
 @screen lg {
   .fi-sidebar {
     @apply lg:!bg-gray-50 dark:lg:!bg-gray-950 !z-[2];
