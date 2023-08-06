@@ -20,8 +20,8 @@ class FilamentStickyHeaderServiceProvider extends PackageServiceProvider
         parent::packageRegistered();
 
         FilamentAsset::register([
-            Css::make('awcodes-sticky-header', __DIR__.'/../resources/dist/filament-sticky-header.css'),
-            Js::make('awcodes-sticky-header', __DIR__.'/../resources/dist/filament-sticky-header.js'),
+            Css::make('awcodes-sticky-header', __DIR__ . '/../resources/dist/filament-sticky-header.css'),
+            Js::make('awcodes-sticky-header', __DIR__ . '/../resources/dist/filament-sticky-header.js'),
         ], 'awcodes-sticky-header');
     }
 }
