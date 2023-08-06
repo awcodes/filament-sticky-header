@@ -10,7 +10,7 @@
   }
 
   .fi-header .fi-header-heading {
-    @apply text-xl overflow-ellipsis whitespace-nowrap overflow-hidden leading-none;
+    @apply pb-2 text-xl overflow-ellipsis whitespace-nowrap overflow-hidden leading-none;
   }
 }
 
