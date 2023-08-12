@@ -34,7 +34,7 @@ if (filamentTopbar && filamentMainContent && filamentHeader) {
                 }
 
                 filamentHeader.style.top = (offsetHeight + offsetModifier) + "px";
-                filamentHeader.setAttribute("wire:ignore", "true");
+                filamentHeader.setAttribute("wire:ignore.self", "true");
                 filamentMainContent.classList.add("is-sticky");
             },
             {
