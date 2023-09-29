@@ -1,12 +1,12 @@
 @screen lg {
   .fi-sidebar {
-    @apply lg:!bg-gray-50 dark:lg:!bg-gray-950 !z-[2];
+    @apply lg:!bg-gray-50 dark:lg:!bg-gray-950 !z-[3];
   }
 }
 
 .fi-main.is-sticky {
   .fi-header {
-    @apply sticky backdrop-blur-md z-[1] md:items-center;
+    @apply sticky backdrop-blur-md z-[2] md:items-center;
   }
 
   .fi-header .fi-header-heading {
@@ -17,7 +17,7 @@
 .is-sticky.sticky-theme-default {
   .fi-header {
     @apply sticky inset-x-0 py-3 md:-inset-x-6;
-    z-index: 1;
+    z-index: 2;
 
     &:before {
       @apply backdrop-blur-md bg-white/95 dark:bg-gray-900/95 border-b border-gray-200 dark:border-gray-800 absolute block top-0 bottom-0;
