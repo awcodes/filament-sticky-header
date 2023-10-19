@@ -53,6 +53,23 @@ public function panel(Panel $panel): Panel
 }
 ```
 
+Both the `floating()` and `colored()` methods can receive closure that will be evaluated to determine if the theme should be applied. This allows you to apply the theme conditionally, for instance, based off of user preferences.
+
+```php
+use Awcodes\FilamentStickyHeader\StickyHeaderPlugin;
+
+public function panel(Panel $panel): Panel
+{
+    return $panel
+        ->plugins([
+            StickyHeaderPlugin::make()
+                ->floating(fn():bool => auth()->user()->use_floating_header)
+                ->colored(fn():bool => auth()->user()->use_floating_header)
+        ])
+    ]);
+}
+```
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.

@@ -2,29 +2,35 @@
 
 namespace Awcodes\FilamentStickyHeader;
 
+use Closure;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
+use Filament\Support\Concerns\EvaluatesClosures;
 use Filament\Support\Facades\FilamentAsset;
 
 class StickyHeaderPlugin implements Plugin
 {
-    protected ?bool $isColored = null;
+    use EvaluatesClosures;
 
-    protected ?bool $isFloating = null;
+    protected bool | Closure | null $isColored = null;
+
+    protected bool | Closure | null $isFloating = null;
 
     public function boot(Panel $panel): void
     {
-        //
+        FilamentAsset::registerScriptData([
+            'stickyHeaderTheme' => $this->getTheme(),
+        ], 'awcodes-sticky-header');
     }
 
-    public function colored(bool $condition = true): static
+    public function colored(bool | Closure $condition = true): static
     {
         $this->isColored = $condition;
 
         return $this;
     }
 
-    public function floating(bool $condition = true): static
+    public function floating(bool | Closure $condition = true): static
     {
         $this->isFloating = $condition;
 
@@ -43,12 +49,12 @@ class StickyHeaderPlugin implements Plugin
 
     public function isColored(): bool
     {
-        return $this->isColored ?? false;
+        return $this->evaluate($this->isColored) ?? false;
     }
 
     public function isFloating(): bool
     {
-        return $this->isFloating ?? false;
+        return $this->evaluate($this->isFloating) ?? false;
     }
 
     public function getTheme(): string
@@ -72,8 +78,6 @@ class StickyHeaderPlugin implements Plugin
 
     public function register(Panel $panel): void
     {
-        FilamentAsset::registerScriptData([
-            'stickyHeaderTheme' => $this->getTheme(),
-        ], 'awcodes-sticky-header');
+        //
     }
 }
