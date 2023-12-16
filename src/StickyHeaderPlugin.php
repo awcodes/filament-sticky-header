@@ -5,6 +5,8 @@ namespace Awcodes\FilamentStickyHeader;
 use Closure;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
+use Filament\Support\Assets\Css;
+use Filament\Support\Assets\Js;
 use Filament\Support\Concerns\EvaluatesClosures;
 use Filament\Support\Facades\FilamentAsset;
 
@@ -20,6 +22,7 @@ class StickyHeaderPlugin implements Plugin
     {
         FilamentAsset::registerScriptData([
             'stickyHeaderTheme' => $this->getTheme(),
+            'stickyHeaderActive' => true,
         ], 'awcodes-sticky-header');
     }
 
