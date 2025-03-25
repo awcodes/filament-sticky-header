@@ -13,7 +13,12 @@ function initializeStickyHeader() {
 
     if (filamentTopbar && filamentMainContent && filamentHeader) {
         if (filamentData?.stickyHeaderActive) {
-            const trigger = document.createElement("div");
+            let trigger = document.querySelector('.filament-sticky-trigger');
+
+            if (!trigger) {
+                trigger = document.createElement("div");
+            }
+
             const theme = filamentData?.stickyHeaderTheme || 'default';
             trigger.classList.add("filament-sticky-trigger");
             filamentMainContent.prepend(trigger);
@@ -39,7 +44,7 @@ function initializeStickyHeader() {
                     let offsetModifier = 0;
 
                     if (theme.includes('floating')) {
-                        offsetModifier += 8;
+                        offsetModifier += 32;
                     }
 
                     filamentHeader.style.top = (offsetHeight + offsetModifier) + "px";
