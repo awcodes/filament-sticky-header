@@ -70,6 +70,24 @@ public function panel(Panel $panel): Panel
 }
 ```
 
+### Disabling on List Pages
+
+To disable the sticky header on list pages, you can use the `stickOnListPages()` method.
+
+```php
+use Awcodes\FilamentStickyHeader\StickyHeaderPlugin;
+
+public function panel(Panel $panel): Panel
+{
+    return $panel
+        ->plugins([
+            StickyHeaderPlugin::make()
+                ->stickOnListPages(false)
+        ])
+    ]);
+}
+```
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
