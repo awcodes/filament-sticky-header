@@ -1,11 +1,25 @@
-## Filament Sticky Header
+![sticky-header-og](https://res.cloudinary.com/aw-codes/image/upload/w_1200,f_auto,q_auto/plugins/sticky-header/awcodes-sticky-header.jpg)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/awcodes/filament-sticky-header.svg?style=flat-square)](https://packagist.org/packages/awcodes/filament-sticky-header)
+[![Total Downloads](https://img.shields.io/packagist/dt/awcodes/filament-sticky-header.svg?style=flat-square)](https://packagist.org/packages/awcodes/filament-sticky-header)
 
-> **Warning**
+> [!Warning]
 > Does not work in Safari < v16.
 
-A Filament Admin plugin to make page headers sticky when scrolling.
+# Filament Sticky Header
 
-![sticky-header-og](https://res.cloudinary.com/aw-codes/image/upload/w_1200,f_auto,q_auto/plugins/sticky-header/awcodes-sticky-header.jpg)
+A Filament Panel plugin to make page headers sticky when scrolling.
+
+## Compatibility
+
+| Package Version | Filament Version |
+|-----------------|------------------|
+| 1.x             | 2.x              |
+| 2.x             | 3.x              |
+| 3.x             | 4.x              |
+
+## Upgrading from v2 to v3
+
+If you are upgrading from version 2 to version 3, you will need to update the namespace anywhere you are using the plugin from `Awcodes\FilamentStickyHeader` to `Awcodes\StickyHeader`.
 
 ## Installation
 
@@ -15,12 +29,21 @@ Install packages via composer
 composer require awcodes/filament-sticky-header
 ```
 
+> [!IMPORTANT]
+> If you have not set up a custom theme and are using Filament Panels follow the instructions in the [Filament Docs](https://filamentphp.com/docs/4.x/styling/overview#creating-a-custom-theme) first.
+
+After setting up a custom theme add the plugin's views to your theme css file or your app's css file if using the standalone packages.
+
+```css
+@import '../../../../vendor/awcodes/filament-sticky-header/resources/css/plugin.css';
+```
+
 ## Usage
 
 Just add the plugin to your panel provider, and you're good to go.
 
 ```php
-use Awcodes\FilamentStickyHeader\StickyHeaderPlugin;
+use Awcodes\StickyHeader\StickyHeaderPlugin;
 
 public function panel(Panel $panel): Panel
 {
@@ -39,7 +62,7 @@ To use the 'Floating Theme' use the `floating()` method when instantiating the p
 When using the floating theme you can also use the `colored()` method to add your primary background color to the header.
 
 ```php
-use Awcodes\FilamentStickyHeader\StickyHeaderPlugin;
+use Awcodes\StickyHeader\StickyHeaderPlugin;
 
 public function panel(Panel $panel): Panel
 {
@@ -56,7 +79,7 @@ public function panel(Panel $panel): Panel
 Both the `floating()` and `colored()` methods can receive closure that will be evaluated to determine if the theme should be applied. This allows you to apply the theme conditionally, for instance, based off of user preferences.
 
 ```php
-use Awcodes\FilamentStickyHeader\StickyHeaderPlugin;
+use Awcodes\StickyHeader\StickyHeaderPlugin;
 
 public function panel(Panel $panel): Panel
 {
@@ -75,7 +98,7 @@ public function panel(Panel $panel): Panel
 To disable the sticky header on list pages, you can use the `stickOnListPages()` method.
 
 ```php
-use Awcodes\FilamentStickyHeader\StickyHeaderPlugin;
+use Awcodes\StickyHeader\StickyHeaderPlugin;
 
 public function panel(Panel $panel): Panel
 {

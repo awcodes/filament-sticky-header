@@ -1,6 +1,6 @@
 {
     "name": "awcodes/filament-sticky-header",
-    "description": "A Filament Admin plugin to make headers sticky when scrolling.",
+    "description": "A Filament Panel plugin to make page headers sticky when scrolling.",
     "keywords": [
         "framework",
         "laravel",
@@ -15,34 +15,56 @@
         }
     ],
     "require": {
-        "php": "^8.1",
-        "filament/filament": "^3.0",
+        "php": "^8.2",
+        "filament/filament": "^4.0",
         "spatie/laravel-package-tools": "^1.15.0"
     },
     "require-dev": {
-        "laravel/pint": "^1.10"
+        "laravel/pint": "^1.0",
+        "orchestra/testbench": "^9.0|^10.0",
+        "pestphp/pest": "^3.7",
+        "pestphp/pest-plugin-laravel": "^3.0",
+        "pestphp/pest-plugin-livewire": "^3.0",
+        "rector/rector": "^2.0",
+        "spatie/laravel-ray": "^1.26"
     },
     "autoload": {
         "psr-4": {
-            "Awcodes\\FilamentStickyHeader\\": "src/"
+            "Awcodes\\StickyHeader\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Awcodes\\FilamentStickyHeader\\Tests\\": "tests/"
+            "Awcodes\\StickyHeader\\Tests\\": "tests/src",
+            "Awcodes\\StickyHeader\\Tests\\Database\\Factories\\": "tests/database/factories"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Awcodes\\FilamentStickyHeader\\FilamentStickyHeaderServiceProvider"
+                "Awcodes\\StickyHeader\\StickyHeaderServiceProvider"
             ]
         }
     },
+    "scripts": {
+        "lint": "pint",
+        "refactor": "rector",
+        "test:lint": "pint --test",
+        "test:refactor": "rector --dry-run",
+        "test:unit": "pest",
+        "test": [
+            "@test:refactor",
+            "@test:lint",
+            "@test:unit"
+        ]
+    },
     "config": {
-        "optimize-autoloader": true,
-        "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true,
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true

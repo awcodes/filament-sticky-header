@@ -1,11 +1,14 @@
 name: "Build assets"
 
 on:
+  workflow_dispatch:
   pull_request:
-    branches:
-      - 2.x
     types:
       - closed
+    branches:
+      - 3.x
+    paths:
+      - 'resources/js/**.js'
 
 jobs:
   if_merged:
@@ -30,3 +33,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Chore: build assets"
+          commit_user_name: "GitHub Actions"

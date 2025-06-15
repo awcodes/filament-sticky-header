@@ -1,54 +1,49 @@
-@screen lg {
-  .fi-sidebar {
-    @apply lg:!bg-gray-50 dark:lg:!bg-gray-950 !z-[3];
-  }
-}
-
-.fi-main.is-sticky {
-  .fi-header {
-    @apply sticky backdrop-blur-md z-[2] md:items-center;
-  }
-
-  .fi-header .fi-header-heading {
-    @apply pb-2 text-xl overflow-ellipsis whitespace-nowrap overflow-hidden leading-none;
-  }
-}
-
-.is-sticky.sticky-theme-default {
-  .fi-header {
-    @apply sticky inset-x-0 py-3 md:-inset-x-6;
-    z-index: 2;
-
-    &:before {
-      @apply backdrop-blur-md bg-white/95 dark:bg-gray-900/95 border-b border-gray-200 dark:border-gray-800 absolute block top-0 bottom-0;
-      content: "";
-      z-index: -1;
-      left: -1000px;
-      right: -1000px;
+@layer components {
+  @media (width >= theme(--breakpoint-lg)) {
+    .fi-sidebar {
+      @apply lg:!bg-gray-50 dark:lg:!bg-gray-950 !z-[3];
     }
   }
-}
 
-.is-sticky.sticky-theme-floating {
-  .fi-header {
-    @apply lg:-mx-4 py-3 px-4 bg-white/80 border rounded-lg shadow-md border-gray-950/5 dark:bg-black/70 dark:border-white/20;
-  }
-}
-
-.is-sticky.sticky-theme-floating-colored {
-  .fi-header {
-    @apply lg:-mx-4 py-3 px-4 bg-primary-500/80 border rounded-lg shadow-md border-primary-200/40 dark:border-primary-700/40;
-
-    .fi-header-heading {
-        @apply text-white;
+  .fi-main.is-sticky {
+    .fi-header {
+      @apply sticky backdrop-blur-md z-[2] md:items-center;
     }
 
-    .fi-breadcrumbs a {
-        @apply text-primary-100 hover:text-white focus:text-white;
+    .fi-header .fi-header-heading {
+      @apply pb-2 overflow-ellipsis whitespace-nowrap overflow-hidden leading-none;
     }
 
-    .fi-breadcrumbs svg {
-      @apply text-primary-200 dark:text-primary-300;
+    &.sticky-theme-default {
+      .fi-header {
+        @apply sticky z-[2] isolate inset-x-0 py-3 md:-inset-x-6 before:bg-white before:border-b before:border-gray-200
+        before:absolute before:block before:top-0 before:bottom-0 dark:before:bg-gray-900/95 dark:before:border-white/20
+        before:z-[-1] before:left-[-1000px] before:right-[-1000px];
+      }
+    }
+
+    &.sticky-theme-floating {
+      .fi-header {
+        @apply lg:-mx-4 py-3 px-4 bg-white/80 border rounded-lg shadow-md border-gray-950/5 dark:bg-black/70 dark:border-white/20;
+      }
+    }
+
+    &.sticky-theme-floating-colored {
+      .fi-header {
+        @apply lg:-mx-4 py-3 px-4 bg-primary-500/80 border rounded-lg shadow-md border-primary-200/40 dark:border-primary-700/40;
+
+        .fi-header-heading {
+          @apply text-white;
+        }
+
+        .fi-breadcrumbs a {
+          @apply text-primary-100 hover:text-white focus:text-white;
+        }
+
+        .fi-breadcrumbs svg {
+          @apply text-primary-200 dark:text-primary-300;
+        }
+      }
     }
   }
 }

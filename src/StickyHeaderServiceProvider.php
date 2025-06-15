@@ -1,14 +1,15 @@
 <?php
 
-namespace Awcodes\FilamentStickyHeader;
+declare(strict_types=1);
 
-use Filament\Support\Assets\Css;
+namespace Awcodes\StickyHeader;
+
 use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class FilamentStickyHeaderServiceProvider extends PackageServiceProvider
+class StickyHeaderServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -20,8 +21,7 @@ class FilamentStickyHeaderServiceProvider extends PackageServiceProvider
         parent::packageRegistered();
 
         FilamentAsset::register([
-            Css::make('awcodes-sticky-header', __DIR__ . '/../resources/dist/filament-sticky-header.css'),
-            Js::make('awcodes-sticky-header', __DIR__ . '/../resources/dist/filament-sticky-header.js'),
+            Js::make('awcodes-sticky-header', __DIR__.'/../resources/dist/sticky-header.js'),
         ], 'awcodes-sticky-header');
     }
 }

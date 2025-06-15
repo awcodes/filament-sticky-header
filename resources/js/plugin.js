@@ -52,7 +52,7 @@ function initializeStickyHeader() {
                     filamentMainContent.classList.add("is-sticky");
                 },
                 {
-                    rootMargin: `-${offsetHeight}px`,
+                    rootMargin: `-${offsetHeight - 32}px`,
                     threshold: [0],
                 }
             );
