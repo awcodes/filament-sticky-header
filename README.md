@@ -1,13 +1,11 @@
-![sticky-header-og](https://res.cloudinary.com/aw-codes/image/upload/w_1200,f_auto,q_auto/plugins/sticky-header/awcodes-sticky-header.jpg)
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/awcodes/filament-sticky-header.svg?style=flat-square)](https://packagist.org/packages/awcodes/filament-sticky-header)
-[![Total Downloads](https://img.shields.io/packagist/dt/awcodes/filament-sticky-header.svg?style=flat-square)](https://packagist.org/packages/awcodes/filament-sticky-header)
-
-> [!Warning]
-> Does not work in Safari < v16.
-
 # Filament Sticky Header
 
 A Filament Panel plugin to make page headers sticky when scrolling.
+
+[![Latest Version](https://img.shields.io/github/release/awcodes/filament-sticky-header.svg?style=flat-square)](https://github.com/awcodes/filament-sticky-header/releases)
+[![MIT Licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Total Downloads](https://img.shields.io/packagist/dt/awcodes/filament-sticky-header.svg?style=flat-square)](https://packagist.org/packages/awcodes/filament-sticky-header)
+![GitHub Repo stars](https://img.shields.io/github/stars/awcodes/filament-sticky-header?style=flat-square)
 
 ## Compatibility
 
