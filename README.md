@@ -16,6 +16,8 @@ A Filament Panel plugin to make page headers sticky when scrolling.
 | 3.x             | 4.x              |
 | 4.x             | 5.x              |
 
+<!-- [docs_start] -->
+
 ## Installation
 
 Install packages via composer
@@ -105,6 +107,8 @@ public function panel(Panel $panel): Panel
     ]);
 }
 ```
+
+<!-- [docs_end] -->
 
 ## Changelog
 
