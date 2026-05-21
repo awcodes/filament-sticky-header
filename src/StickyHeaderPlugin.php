@@ -15,6 +15,8 @@ class StickyHeaderPlugin implements Plugin
 {
     use EvaluatesClosures;
 
+    protected array|Closure $disabledOn = [];
+
     protected bool|Closure|null $isColored = null;
 
     protected bool|Closure|null $isFloating = null;
@@ -43,6 +45,13 @@ class StickyHeaderPlugin implements Plugin
         ], 'awcodes-sticky-header');
     }
 
+    public function disabledOn(array|Closure $pages): static
+    {
+        $this->disabledOn = $pages;
+
+        return $this;
+    }
+
     public function colored(bool|Closure $condition = true): static
     {
         $this->isColored = $condition;
@@ -62,6 +71,11 @@ class StickyHeaderPlugin implements Plugin
         $this->stickOnListPages = $condition;
 
         return $this;
+    }
+
+    public function getDisabledPages(): array
+    {
+        return $this->evaluate($this->disabledOn) ?? [];
     }
 
     public function getId(): string
@@ -105,6 +119,18 @@ class StickyHeaderPlugin implements Plugin
 
     public function shouldStick(): bool
     {
-        return ! (str(request()->route()->getAction('as'))->contains('index') && ! $this->shouldStickOnListPages());
+        $routeName = str(request()->route()->getAction('as'));
+
+        if ($routeName->contains('index') && ! $this->shouldStickOnListPages()) {
+            return false;
+        }
+
+        foreach ($this->getDisabledPages() as $pageClass) {
+            if (method_exists($pageClass, 'getRouteName') && (string) $routeName === $pageClass::getRouteName()) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

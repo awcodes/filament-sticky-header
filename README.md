@@ -111,6 +111,36 @@ public function panel(Panel $panel): Panel
 }
 ```
 
+### Disabling on Custom Pages
+
+To disable the sticky header on specific custom pages, pass an array of page class names (or a Closure returning one) to the `disabledOn()` method.
+
+```php
+use Awcodes\StickyHeader\StickyHeaderPlugin;
+use App\Filament\Pages\MyCustomPage;
+use App\Filament\Pages\AnotherPage;
+
+public function panel(Panel $panel): Panel
+{
+    return $panel
+        ->plugins([
+            StickyHeaderPlugin::make()
+                ->disabledOn([
+                    MyCustomPage::class,
+                    AnotherPage::class,
+                ])
+        ])
+    ]);
+}
+```
+
+A Closure is also accepted, which allows the list to be determined at runtime.
+
+```php
+StickyHeaderPlugin::make()
+    ->disabledOn(fn () => [MyCustomPage::class])
+```
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
