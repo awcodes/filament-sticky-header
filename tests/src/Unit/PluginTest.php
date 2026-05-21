@@ -41,3 +41,23 @@ it('can register colored sticky header', function (bool|Closure $enabled) {
     true,
     fn () => true,
 ]);
+
+it('can register disabled pages as array', function () {
+    $this->panel
+        ->plugins([
+            StickyHeaderPlugin::make()->disabledOn(['App\Filament\Pages\CustomPage']),
+        ]);
+
+    expect(Filament::getPlugin('awcodes-sticky-header')->getDisabledPages())
+        ->toBe(['App\Filament\Pages\CustomPage']);
+});
+
+it('can register disabled pages as closure', function () {
+    $this->panel
+        ->plugins([
+            StickyHeaderPlugin::make()->disabledOn(fn () => ['App\Filament\Pages\CustomPage']),
+        ]);
+
+    expect(Filament::getPlugin('awcodes-sticky-header')->getDisabledPages())
+        ->toBe(['App\Filament\Pages\CustomPage']);
+});
