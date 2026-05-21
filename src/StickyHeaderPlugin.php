@@ -7,12 +7,15 @@ namespace Awcodes\StickyHeader;
 use Closure;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
+use Filament\Support\Assets\Js;
 use Filament\Support\Concerns\EvaluatesClosures;
 use Filament\Support\Facades\FilamentAsset;
 
 class StickyHeaderPlugin implements Plugin
 {
     use EvaluatesClosures;
+
+    protected array|Closure $disabledOn = [];
 
     protected bool|Closure|null $isColored = null;
 
@@ -32,10 +35,21 @@ class StickyHeaderPlugin implements Plugin
 
     public function boot(Panel $panel): void
     {
+        FilamentAsset::register([
+            Js::make('awcodes-sticky-header', __DIR__.'/../resources/dist/sticky-header.js'),
+        ], 'awcodes-sticky-header');
+
         FilamentAsset::registerScriptData([
             'stickyHeaderTheme' => $this->getTheme(),
             'stickyHeaderActive' => $this->shouldStick(),
         ], 'awcodes-sticky-header');
+    }
+
+    public function disabledOn(array|Closure $pages): static
+    {
+        $this->disabledOn = $pages;
+
+        return $this;
     }
 
     public function colored(bool|Closure $condition = true): static
@@ -57,6 +71,11 @@ class StickyHeaderPlugin implements Plugin
         $this->stickOnListPages = $condition;
 
         return $this;
+    }
+
+    public function getDisabledPages(): array
+    {
+        return $this->evaluate($this->disabledOn) ?? [];
     }
 
     public function getId(): string
@@ -100,6 +119,18 @@ class StickyHeaderPlugin implements Plugin
 
     public function shouldStick(): bool
     {
-        return ! (str(request()->route()->getAction('as'))->contains('index') && ! $this->shouldStickOnListPages());
+        $routeName = str(request()->route()->getAction('as'));
+
+        if ($routeName->contains('index') && ! $this->shouldStickOnListPages()) {
+            return false;
+        }
+
+        foreach ($this->getDisabledPages() as $pageClass) {
+            if (method_exists($pageClass, 'getRouteName') && (string) $routeName === $pageClass::getRouteName()) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Awcodes\StickyHeader;
 
-use Filament\Support\Assets\Js;
-use Filament\Support\Facades\FilamentAsset;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -19,9 +17,5 @@ class StickyHeaderServiceProvider extends PackageServiceProvider
     public function packageRegistered(): void
     {
         parent::packageRegistered();
-
-        FilamentAsset::register([
-            Js::make('awcodes-sticky-header', __DIR__.'/../resources/dist/sticky-header.js'),
-        ], 'awcodes-sticky-header');
     }
 }
