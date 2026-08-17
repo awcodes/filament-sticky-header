@@ -47,8 +47,7 @@ public function panel(Panel $panel): Panel
     return $panel
         ->plugins([
             StickyHeaderPlugin::make(),
-        ])
-    ])
+        ]);
 }
 ```
 
@@ -68,8 +67,7 @@ public function panel(Panel $panel): Panel
             StickyHeaderPlugin::make()
                 ->floating()
                 ->colored()
-        ])
-    ]);
+        ]);
 }
 ```
 
@@ -85,8 +83,7 @@ public function panel(Panel $panel): Panel
             StickyHeaderPlugin::make()
                 ->floating(fn():bool => auth()->user()->use_floating_header)
                 ->colored(fn():bool => auth()->user()->use_floating_header)
-        ])
-    ]);
+        ]);
 }
 ```
 
@@ -103,8 +100,7 @@ public function panel(Panel $panel): Panel
         ->plugins([
             StickyHeaderPlugin::make()
                 ->stickOnListPages(false)
-        ])
-    ]);
+        ]);
 }
 ```
 
@@ -126,8 +122,7 @@ public function panel(Panel $panel): Panel
                     MyCustomPage::class,
                     AnotherPage::class,
                 ])
-        ])
-    ]);
+        ]);
 }
 ```
 
