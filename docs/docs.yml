@@ -1,0 +1,8 @@
+version: 1
+
+title: Sticky Header
+
+navigation:
+  - index
+  - installation
+  - configuration
