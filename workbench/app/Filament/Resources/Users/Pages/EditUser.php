@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Awcodes\StickyHeader\Tests\Fixtures\Resources\Users\Pages;
+namespace Workbench\App\Filament\Resources\Users\Pages;
 
-use Awcodes\StickyHeader\Tests\Fixtures\Resources\Users\UserResource;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\ViewAction;
 use Filament\Resources\Pages\EditRecord;
+use Workbench\App\Filament\Resources\Users\UserResource;
 
 class EditUser extends EditRecord
 {

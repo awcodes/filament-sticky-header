@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Awcodes\StickyHeader\Tests\Fixtures\Resources\Users\Schemas;
+namespace Workbench\App\Filament\Resources\Users\Schemas;
 
 use Exception;
 use Filament\Infolists\Components\TextEntry;

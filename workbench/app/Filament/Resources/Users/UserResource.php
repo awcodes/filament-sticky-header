@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Awcodes\StickyHeader\Tests\Fixtures\Resources\Users;
+namespace Workbench\App\Filament\Resources\Users;
 
-use Awcodes\StickyHeader\Tests\Fixtures\Models\User;
-use Awcodes\StickyHeader\Tests\Fixtures\Resources\Users\Pages\CreateUser;
-use Awcodes\StickyHeader\Tests\Fixtures\Resources\Users\Pages\EditUser;
-use Awcodes\StickyHeader\Tests\Fixtures\Resources\Users\Pages\ListUsers;
-use Awcodes\StickyHeader\Tests\Fixtures\Resources\Users\Pages\ViewUser;
-use Awcodes\StickyHeader\Tests\Fixtures\Resources\Users\Schemas\UserForm;
-use Awcodes\StickyHeader\Tests\Fixtures\Resources\Users\Schemas\UserInfolist;
-use Awcodes\StickyHeader\Tests\Fixtures\Resources\Users\Tables\UsersTable;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Workbench\App\Filament\Resources\Users\Pages\CreateUser;
+use Workbench\App\Filament\Resources\Users\Pages\EditUser;
+use Workbench\App\Filament\Resources\Users\Pages\ListUsers;
+use Workbench\App\Filament\Resources\Users\Pages\ViewUser;
+use Workbench\App\Filament\Resources\Users\Schemas\UserForm;
+use Workbench\App\Filament\Resources\Users\Schemas\UserInfolist;
+use Workbench\App\Filament\Resources\Users\Tables\UsersTable;
+use Workbench\App\Models\User;
 
 class UserResource extends Resource
 {

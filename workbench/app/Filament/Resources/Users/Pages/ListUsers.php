@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Awcodes\StickyHeader\Tests\Fixtures\Resources\Users\Pages;
+namespace Workbench\App\Filament\Resources\Users\Pages;
 
-use Awcodes\StickyHeader\Tests\Fixtures\Resources\Users\UserResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
+use Workbench\App\Filament\Resources\Users\UserResource;
 
 class ListUsers extends ListRecords
 {

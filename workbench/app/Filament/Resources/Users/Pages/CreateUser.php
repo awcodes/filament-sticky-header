@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Awcodes\StickyHeader\Tests\Fixtures\Resources\Users\Pages;
+namespace Workbench\App\Filament\Resources\Users\Pages;
 
-use Awcodes\StickyHeader\Tests\Fixtures\Resources\Users\UserResource;
 use Filament\Resources\Pages\CreateRecord;
+use Workbench\App\Filament\Resources\Users\UserResource;
 
 class CreateUser extends CreateRecord
 {

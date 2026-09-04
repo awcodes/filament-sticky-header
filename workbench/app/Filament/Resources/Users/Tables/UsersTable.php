@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Awcodes\StickyHeader\Tests\Fixtures\Resources\Users\Tables;
+namespace Workbench\App\Filament\Resources\Users\Tables;
 
 use Exception;
 use Filament\Actions\BulkActionGroup;

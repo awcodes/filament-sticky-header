@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Awcodes\StickyHeader\Tests\Fixtures\Models;
+namespace Workbench\App\Models;
 
-use Awcodes\StickyHeader\Tests\Database\Factories\UserFactory;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Workbench\Database\Factories\UserFactory;
 
 class User extends Authenticatable implements FilamentUser
 {

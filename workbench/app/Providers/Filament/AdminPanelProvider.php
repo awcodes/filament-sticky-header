@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Awcodes\StickyHeader\Tests\Fixtures\Providers;
+namespace Workbench\App\Providers\Filament;
 
-use Awcodes\StickyHeader\Tests\Fixtures\Resources\Users\UserResource;
+use Awcodes\StickyHeader\StickyHeaderPlugin;
 use Exception;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -13,23 +13,40 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
+use Filament\Support\Assets\Theme;
+use Filament\Support\Facades\FilamentAsset;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Workbench\App\Filament\Pages\Auth\Login;
+use Workbench\App\Filament\Resources\Users\UserResource;
 
 class AdminPanelProvider extends PanelProvider
 {
+    public function boot(): void
+    {
+        FilamentAsset::register([
+            Theme::make('workbench', __DIR__.'/../../../resources/dist/theme.css'),
+        ], 'workbench');
+    }
+
     /** @throws Exception */
     public function panel(Panel $panel): Panel
     {
         return $panel
             ->default()
             ->id('admin')
-            ->path('/admin')
-            ->login()
+            ->path('admin')
+            ->login(Login::class)
+            ->theme('workbench')
+            ->plugins([
+                StickyHeaderPlugin::make()
+                    ->floating()
+                    ->colored(),
+            ])
             ->resources([
                 UserResource::class,
             ])
