@@ -59,7 +59,7 @@ it('has correct floating colored script data', function () {
         ]);
 });
 
-it('has correct disabled on list page script data', function (bool|Closure $enabled) {
+it('has correct disabled on list page script data', function (bool | Closure $enabled) {
     $this->panel
         ->plugins([
             StickyHeaderPlugin::make()->stickOnListPages($enabled),
