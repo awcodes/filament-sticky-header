@@ -18,7 +18,7 @@ it('can register the plugin', function () {
     expect(Filament::getPlugin('awcodes-sticky-header'))->toBeInstanceOf(StickyHeaderPlugin::class);
 });
 
-it('can register floating sticky header', function (bool|Closure $enabled) {
+it('can register floating sticky header', function (bool | Closure $enabled) {
     $this->panel
         ->plugins([
             StickyHeaderPlugin::make()->floating($enabled),
@@ -30,7 +30,7 @@ it('can register floating sticky header', function (bool|Closure $enabled) {
     fn () => true,
 ]);
 
-it('can register colored sticky header', function (bool|Closure $enabled) {
+it('can register colored sticky header', function (bool | Closure $enabled) {
     $this->panel
         ->plugins([
             StickyHeaderPlugin::make()->colored($enabled),

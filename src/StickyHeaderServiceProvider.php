@@ -24,7 +24,7 @@ class StickyHeaderServiceProvider extends PackageServiceProvider
     public function packageBooted(): void
     {
         FilamentAsset::register([
-            Js::make('awcodes-sticky-header', __DIR__.'/../resources/dist/sticky-header.js'),
+            Js::make('awcodes-sticky-header', __DIR__ . '/../resources/dist/sticky-header.js'),
         ], 'awcodes-sticky-header');
     }
 }

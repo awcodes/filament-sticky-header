@@ -1,0 +1,6 @@
+# Generate this per package with:
+#   vendor/bin/phpstan analyse --generate-baseline
+# Commit the result, then set `run-static-analysis: true` in the caller workflow.
+# An empty baseline (below) is valid for packages that already pass at level 5.
+parameters:
+    ignoreErrors: []

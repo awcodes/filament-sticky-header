@@ -14,17 +14,20 @@ class StickyHeaderPlugin implements Plugin
 {
     use EvaluatesClosures;
 
-    protected array|Closure $disabledOn = [];
+    protected array | Closure $disabledOn = [];
 
-    protected bool|Closure|null $isColored = null;
+    protected bool | Closure | null $isColored = null;
 
-    protected bool|Closure|null $isFloating = null;
+    protected bool | Closure | null $isFloating = null;
 
-    protected bool|Closure|null $stickOnListPages = null;
+    protected bool | Closure | null $stickOnListPages = null;
 
     public static function get(): static
     {
-        return filament(app(static::class)->getId());
+        /** @var static $plugin */
+        $plugin = filament(app(static::class)->getId());
+
+        return $plugin;
     }
 
     public static function make(): static
@@ -40,28 +43,28 @@ class StickyHeaderPlugin implements Plugin
         ], 'awcodes-sticky-header');
     }
 
-    public function disabledOn(array|Closure $pages): static
+    public function disabledOn(array | Closure $pages): static
     {
         $this->disabledOn = $pages;
 
         return $this;
     }
 
-    public function colored(bool|Closure $condition = true): static
+    public function colored(bool | Closure $condition = true): static
     {
         $this->isColored = $condition;
 
         return $this;
     }
 
-    public function floating(bool|Closure $condition = true): static
+    public function floating(bool | Closure $condition = true): static
     {
         $this->isFloating = $condition;
 
         return $this;
     }
 
-    public function stickOnListPages(bool|Closure $condition = true): static
+    public function stickOnListPages(bool | Closure $condition = true): static
     {
         $this->stickOnListPages = $condition;
 

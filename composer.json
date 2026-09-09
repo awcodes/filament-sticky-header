@@ -20,11 +20,13 @@
         "spatie/laravel-package-tools": "^1.15.0"
     },
     "require-dev": {
+        "larastan/larastan": "^3.0",
         "laravel/pint": "^1.0",
+        "nunomaduro/collision": "^8.0",
         "orchestra/testbench": "^9.0|^10.0|^11.0",
-        "pestphp/pest": "^4.3",
+        "pestphp/pest": "^4.0",
+        "pestphp/pest-plugin-arch": "^4.0",
         "pestphp/pest-plugin-laravel": "^4.0",
-        "pestphp/pest-plugin-livewire": "^4.0",
         "rector/rector": "^2.0",
         "spatie/laravel-ray": "^1.26"
     },
@@ -49,19 +51,21 @@
         }
     },
     "scripts": {
+        "post-autoload-dump": [
+            "@clear",
+            "@prepare"
+        ],
         "lint": "pint",
         "refactor": "rector",
         "test:lint": "pint --test",
         "test:refactor": "rector --dry-run",
+        "test:types": "phpstan analyse",
         "test:unit": "pest",
         "test": [
             "@test:refactor",
             "@test:lint",
+            "@test:types",
             "@test:unit"
-        ],
-        "post-autoload-dump": [
-            "@clear",
-            "@prepare"
         ],
         "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
         "prepare": "@php vendor/bin/testbench package:discover --ansi",

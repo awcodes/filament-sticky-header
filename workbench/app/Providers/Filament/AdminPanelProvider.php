@@ -29,7 +29,7 @@ class AdminPanelProvider extends PanelProvider
     public function boot(): void
     {
         FilamentAsset::register([
-            Theme::make('workbench', __DIR__.'/../../../resources/dist/theme.css'),
+            Theme::make('workbench', __DIR__ . '/../../../resources/dist/theme.css'),
         ], 'workbench');
     }
 
