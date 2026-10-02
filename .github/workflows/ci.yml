@@ -67,7 +67,7 @@ on:
 
 jobs:
   ci:
-    uses: awcodes/.github/.github/workflows/filament-plugin.yml@v1
+    uses: awcodes/.github/.github/workflows/filament-plugin.yml@ad63f1536b965fed92274516cb81f172b1d60e1a # v1.4.3
     with:
       # Explicit rows, no `exclude`. All seven resolve against this package's transitive
       # constraints: the F5 rows land filament 5.8.1, the F4 rows filament 4.13.1.
