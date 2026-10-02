@@ -6,138 +6,32 @@ A Filament Panel plugin to make page headers sticky when scrolling.
 [![MIT Licensed](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE.md)
 [![Total Downloads](https://img.shields.io/packagist/dt/awcodes/filament-sticky-header.svg?style=flat-square&color=blue&label=Downloads)](https://packagist.org/packages/awcodes/filament-sticky-header)
 [![GitHub Repo stars](https://img.shields.io/github/stars/awcodes/filament-sticky-header?style=flat-square&color=blue&label=Stars)](https://github.com/awcodes/filament-sticky-header/stargazers)
+[![Filament Version](https://img.shields.io/badge/Filament-4.x%20%26%205.x-d97706.svg?style=flat-square)](https://filamentphp.com/docs/5.x/panels/installation)
+
+## Documentation
+
+The full documentation lives at **[docs.aw.codes/sticky-header](https://docs.aw.codes/sticky-header/4.x)**.
 
 ## Compatibility
 
-| Package Version | Filament Version |
-|-----------------|------------------|
-| 1.x             | 2.x              |
-| 2.x             | 3.x              |
-| 3.x             | 4.x              |
-| 4.x             | 4.x & 5.x        |
-
-<!-- [docs_start] -->
+| Filament version | Package version |
+|------------------|-----------------|
+| 2.x              | 1.x             |
+| 3.x              | 2.x             |
+| 4.x              | 3.x             |
+| 4.x & 5.x        | 4.x             |
 
 ## Installation
-
-Install packages via composer
 
 ```bash
 composer require awcodes/filament-sticky-header
 ```
 
-> [!IMPORTANT]
-> If you have not set up a custom theme and are using Filament Panels follow the instructions in the [Filament Docs](https://filamentphp.com/docs/4.x/styling/overview#creating-a-custom-theme) first.
-
-After setting up a custom theme add the plugin's views to your theme css file or your app's css file if using the standalone packages.
-
-```css
-@import '../../../../vendor/awcodes/filament-sticky-header/resources/css/plugin.css';
-```
-
-## Usage
-
-Just add the plugin to your panel provider, and you're good to go.
-
-```php
-use Awcodes\StickyHeader\StickyHeaderPlugin;
-
-public function panel(Panel $panel): Panel
-{
-    return $panel
-        ->plugins([
-            StickyHeaderPlugin::make(),
-        ]);
-}
-```
-
-### Floating Theme
-
-To use the 'Floating Theme' use the `floating()` method when instantiating the plugin.
-
-When using the floating theme you can also use the `colored()` method to add your primary background color to the header.
-
-```php
-use Awcodes\StickyHeader\StickyHeaderPlugin;
-
-public function panel(Panel $panel): Panel
-{
-    return $panel
-        ->plugins([
-            StickyHeaderPlugin::make()
-                ->floating()
-                ->colored()
-        ]);
-}
-```
-
-Both the `floating()` and `colored()` methods can receive closure that will be evaluated to determine if the theme should be applied. This allows you to apply the theme conditionally, for instance, based off of user preferences.
-
-```php
-use Awcodes\StickyHeader\StickyHeaderPlugin;
-
-public function panel(Panel $panel): Panel
-{
-    return $panel
-        ->plugins([
-            StickyHeaderPlugin::make()
-                ->floating(fn():bool => auth()->user()->use_floating_header)
-                ->colored(fn():bool => auth()->user()->use_floating_header)
-        ]);
-}
-```
-
-### Disabling on List Pages
-
-To disable the sticky header on list pages, you can use the `stickOnListPages()` method.
-
-```php
-use Awcodes\StickyHeader\StickyHeaderPlugin;
-
-public function panel(Panel $panel): Panel
-{
-    return $panel
-        ->plugins([
-            StickyHeaderPlugin::make()
-                ->stickOnListPages(false)
-        ]);
-}
-```
-
-### Disabling on Custom Pages
-
-To disable the sticky header on specific custom pages, pass an array of page class names (or a Closure returning one) to the `disabledOn()` method.
-
-```php
-use Awcodes\StickyHeader\StickyHeaderPlugin;
-use App\Filament\Pages\MyCustomPage;
-use App\Filament\Pages\AnotherPage;
-
-public function panel(Panel $panel): Panel
-{
-    return $panel
-        ->plugins([
-            StickyHeaderPlugin::make()
-                ->disabledOn([
-                    MyCustomPage::class,
-                    AnotherPage::class,
-                ])
-        ]);
-}
-```
-
-A Closure is also accepted, which allows the list to be determined at runtime.
-
-```php
-StickyHeaderPlugin::make()
-    ->disabledOn(fn () => [MyCustomPage::class])
-```
-
-<!-- [docs_end] -->
+The plugin needs registering with your panel and its stylesheet importing into your theme. See [Installation](https://docs.aw.codes/sticky-header/4.x/installation) for both steps.
 
 ## Changelog
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+Please see the [releases](https://github.com/awcodes/filament-sticky-header/releases) for what has changed recently.
 
 ## Contributing
 
