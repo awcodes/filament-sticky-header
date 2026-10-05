@@ -43,9 +43,10 @@ class AdminPanelProvider extends PanelProvider
             ->login(Login::class)
             ->theme('workbench')
             ->plugins([
+                // The floating theme unless `?header=default` asks for the full-width bar, so documentation
+                // screenshots can show both.
                 StickyHeaderPlugin::make()
-                    ->floating()
-                    ->colored(),
+                    ->floating(fn (): bool => $this->getHeaderTheme() !== 'default'),
             ])
             ->resources([
                 UserResource::class,
@@ -67,5 +68,10 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ]);
+    }
+
+    private function getHeaderTheme(): string
+    {
+        return (string) request()->query('header', 'floating');
     }
 }

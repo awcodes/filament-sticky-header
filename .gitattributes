@@ -25,4 +25,5 @@
 /tests                  export-ignore
 /testbench.yaml         export-ignore
 /workbench              export-ignore
+/focus.php              export-ignore
 /UPGRADING.md           export-ignore
