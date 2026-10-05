@@ -13,6 +13,9 @@ It applies to every page in the panel — resource pages, custom pages, dashboar
 
 The header starts in its normal position. Once the page is scrolled far enough that the header would leave the viewport, it sticks, positioned just below the panel's topbar so the two never overlap.
 
+![A Filament users list scrolled part way down, with the page header's breadcrumbs, Users heading, and New user button pinned in a full-width bar under the topbar while the table rows continue beneath it](assets/default-light.png#gh-light-mode-only)
+![A Filament users list scrolled part way down, with the page header's breadcrumbs, Users heading, and New user button pinned in a full-width bar under the topbar while the table rows continue beneath it](assets/default-dark.png#gh-dark-mode-only)
+
 Scrolling back to the top returns it to normal. Nothing is duplicated or re-rendered — it is the same header element, restyled.
 
 ## Themes

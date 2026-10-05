@@ -43,9 +43,11 @@ class AdminPanelProvider extends PanelProvider
             ->login(Login::class)
             ->theme('workbench')
             ->plugins([
+                // The floating coloured theme unless `?header=default` or `?header=floating` asks for another, so
+                // documentation screenshots can show each theme.
                 StickyHeaderPlugin::make()
-                    ->floating()
-                    ->colored(),
+                    ->floating(fn (): bool => $this->getHeaderTheme() !== 'default')
+                    ->colored(fn (): bool => $this->getHeaderTheme() === 'colored'),
             ])
             ->resources([
                 UserResource::class,
@@ -67,5 +69,10 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ]);
+    }
+
+    private function getHeaderTheme(): string
+    {
+        return (string) request()->query('header', 'colored');
     }
 }

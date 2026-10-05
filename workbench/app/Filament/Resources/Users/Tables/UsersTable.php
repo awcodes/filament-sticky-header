@@ -18,8 +18,12 @@ class UsersTable
     public static function configure(Table $table): Table
     {
         return $table
+            // One page holds every seeded user, so the list is long enough to scroll.
+            ->defaultPaginationPageOption(25)
             ->columns([
                 TextColumn::make('name')
+                    ->searchable(),
+                TextColumn::make('email')
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()

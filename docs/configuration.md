@@ -24,6 +24,9 @@ public function panel(Panel $panel): Panel
 }
 ```
 
+![A scrolled Filament users list whose page header is pinned as a rounded, translucent card inset from the page edges, with the table rows blurred behind it](assets/floating-light.png#gh-light-mode-only)
+![A scrolled Filament users list whose page header is pinned as a rounded, translucent card inset from the page edges, with the table rows blurred behind it](assets/floating-dark.png#gh-dark-mode-only)
+
 ## Coloured theme
 
 `colored()` fills the floating card with the panel's primary colour and lightens the heading and breadcrumb text to match:
@@ -33,6 +36,9 @@ StickyHeaderPlugin::make()
     ->floating()
     ->colored()
 ```
+
+![A scrolled Filament users list whose page header is pinned as a rounded card filled with the panel's primary colour, with a white Users heading and lightened breadcrumbs](assets/colored-light.png#gh-light-mode-only)
+![A scrolled Filament users list whose page header is pinned as a rounded card filled with the panel's primary colour, with a white Users heading and lightened breadcrumbs](assets/colored-dark.png#gh-dark-mode-only)
 
 > [!IMPORTANT]
 > `colored()` only takes effect alongside `floating()`. On its own it does nothing — the theme resolves to the default bar — so the two are always used together.
