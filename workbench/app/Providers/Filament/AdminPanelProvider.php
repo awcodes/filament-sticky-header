@@ -43,11 +43,10 @@ class AdminPanelProvider extends PanelProvider
             ->login(Login::class)
             ->theme('workbench')
             ->plugins([
-                // The floating coloured theme unless `?header=default` or `?header=floating` asks for another, so
-                // documentation screenshots can show each theme.
+                // The floating theme unless `?header=default` asks for the full-width bar, so documentation
+                // screenshots can show both.
                 StickyHeaderPlugin::make()
-                    ->floating(fn (): bool => $this->getHeaderTheme() !== 'default')
-                    ->colored(fn (): bool => $this->getHeaderTheme() === 'colored'),
+                    ->floating(fn (): bool => $this->getHeaderTheme() !== 'default'),
             ])
             ->resources([
                 UserResource::class,
@@ -73,6 +72,6 @@ class AdminPanelProvider extends PanelProvider
 
     private function getHeaderTheme(): string
     {
-        return (string) request()->query('header', 'colored');
+        return (string) request()->query('header', 'floating');
     }
 }

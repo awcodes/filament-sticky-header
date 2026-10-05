@@ -40,33 +40,27 @@ return ScreenshotSuite::make()
             ->ready($scrolled)
             ->viewport(),
 
-        Screenshot::make('colored')
-            ->viewportSize(...$docs)
-            ->visit('/admin/users?header=colored')
-            ->ready($scrolled)
-            ->viewport(),
-
         // The share-image source, shaped to the card templates' screenshot slots. The two-up templates show it
         // dark in slot 1 and light in slot 2, so it is captured in both themes.
-        Screenshot::make('card-colored')
+        Screenshot::make('card-floating')
             ->viewportSize(...$card)
-            ->visit('/admin/users?header=colored')
+            ->visit('/admin/users?header=floating')
             ->ready($scrolled)
             ->viewport(),
     ])
-    ->cardTemplates('https://github.com/awcodes/focus-templates/tree/v1.1.0/dist')
+    ->cardTemplates('https://github.com/awcodes/focus-templates/tree/v1.1.1/dist')
     ->cards([
         // Open Graph and the GitHub social preview share one 2400x1260 template; GitHub crops 30px top and bottom.
         Card::make('social')
             ->template('two-up-wide')
             ->title('Sticky Header')
-            ->screenshots(['card-colored', 'card-colored'])
+            ->screenshots(['card-floating', 'card-floating'])
             ->sizes([Size::OpenGraph, Size::GitHubSocial]),
 
         // The Filament plugin directory's 2560x1440 thumbnail.
         Card::make('thumbnail')
             ->template('two-up')
             ->title('Sticky Header')
-            ->screenshots(['card-colored', 'card-colored'])
+            ->screenshots(['card-floating', 'card-floating'])
             ->sizes([Size::Filament]),
     ]);

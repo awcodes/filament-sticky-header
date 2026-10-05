@@ -37,9 +37,6 @@ StickyHeaderPlugin::make()
     ->colored()
 ```
 
-![A scrolled Filament users list whose page header is pinned as a rounded card filled with the panel's primary colour, with a white Users heading and lightened breadcrumbs](assets/colored-light.png#gh-light-mode-only)
-![A scrolled Filament users list whose page header is pinned as a rounded card filled with the panel's primary colour, with a white Users heading and lightened breadcrumbs](assets/colored-dark.png#gh-dark-mode-only)
-
 > [!IMPORTANT]
 > `colored()` only takes effect alongside `floating()`. On its own it does nothing — the theme resolves to the default bar — so the two are always used together.
 
