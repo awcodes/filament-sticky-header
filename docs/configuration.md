@@ -29,13 +29,16 @@ public function panel(Panel $panel): Panel
 
 ## Coloured theme
 
-`colored()` fills the floating card with the panel's primary colour and lightens the heading and breadcrumb text to match:
+`colored()` fills the floating card with a deep shade of the panel's primary colour. The heading and breadcrumbs turn light to match, and primary header actions become white buttons so they stand out from the fill:
 
 ```php
 StickyHeaderPlugin::make()
     ->floating()
     ->colored()
 ```
+
+![A scrolled Filament users list whose page header is pinned as a rounded card filled with the panel's primary colour, with a white heading, light breadcrumbs and a white New user button](assets/colored-light.png#gh-light-mode-only)
+![A scrolled Filament users list whose page header is pinned as a rounded card filled with the panel's primary colour, with a white heading, light breadcrumbs and a white New user button](assets/colored-dark.png#gh-dark-mode-only)
 
 > [!IMPORTANT]
 > `colored()` only takes effect alongside `floating()`. On its own it does nothing — the theme resolves to the default bar — so the two are always used together.
