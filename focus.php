@@ -40,6 +40,12 @@ return ScreenshotSuite::make()
             ->ready($scrolled)
             ->viewport(),
 
+        Screenshot::make('colored')
+            ->viewportSize(...$docs)
+            ->visit('/admin/users?header=colored')
+            ->ready($scrolled)
+            ->viewport(),
+
         // The share-image source, shaped to the card templates' screenshot slots. The two-up templates show it
         // dark in slot 1 and light in slot 2, so it is captured in both themes.
         Screenshot::make('card-floating')

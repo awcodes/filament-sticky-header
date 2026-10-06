@@ -30,18 +30,31 @@
 
     &.sticky-theme-floating-colored {
       .fi-header {
-        @apply lg:-mx-4 py-3 px-4 bg-primary-500/80 border rounded-lg shadow-md border-primary-200/40 dark:border-primary-700/40;
+        @apply lg:-mx-4 py-3 px-4 bg-primary-700/90 border rounded-lg shadow-md border-primary-200/40 dark:bg-primary-800/90 dark:border-primary-700/40;
 
         .fi-header-heading {
           @apply text-white;
         }
 
-        .fi-breadcrumbs a {
-          @apply text-primary-100 hover:text-white focus:text-white;
+        .fi-breadcrumbs-item-label {
+          @apply text-primary-100;
+        }
+
+        .fi-breadcrumbs a.fi-breadcrumbs-item-label {
+          @apply hover:text-white focus-visible:text-white;
         }
 
         .fi-breadcrumbs svg {
-          @apply text-primary-200 dark:text-primary-300;
+          @apply text-primary-300;
+        }
+
+        .fi-btn.fi-color-primary:not(.fi-outlined) {
+          @apply bg-white text-primary-700 hover:bg-primary-50 dark:bg-white dark:text-primary-800 dark:hover:bg-primary-50;
+        }
+
+        .fi-btn.fi-color-primary.fi-outlined,
+        .fi-link.fi-color-primary {
+          @apply text-white ring-white/60 hover:text-white;
         }
       }
     }
