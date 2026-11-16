@@ -7,8 +7,8 @@
         "build:workbench": "npx @tailwindcss/cli --input ./workbench/resources/css/theme.css --output ./workbench/resources/dist/theme.css --minify"
     },
     "devDependencies": {
-        "@tailwindcss/cli": "^4.1.13",
-        "esbuild": "^0.25.0",
+        "@tailwindcss/cli": "^4.3.5",
+        "esbuild": "^0.28.2",
         "tailwindcss": "^4.1.13"
     }
 }
